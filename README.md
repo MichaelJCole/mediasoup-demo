@@ -64,13 +64,16 @@ $ npm install
 $ cp config.example.js config.js
 ```
 
-**NOTE:** To be perfectly clear, "customize it for your scenario" is not something "optional". If you don't set proper values in `config.js` the application **won't work**.
+**NOTE:** To be perfectly clear, "customize it for your scenario" is not something "optional". If you don't set proper values in `config.js` the application **won't work**.  At a minimum, configure a tls certification.
 
 * Set up the mediasoup-demo browser app:
 
 ```bash
 $ cd app
+# For node 16
 $ npm install
+# For node 18, use legacy peer dependencies
+$ npm install --legacy-peer-deps  
 ```
 
 
@@ -89,6 +92,8 @@ $ npm start
 $ cd app
 $ npm start
 ```
+
+If you configured a self-signed cert, and receive a wss: cannot connect errors, open the wss: url with https: protocol to accept the cert and allow wss: connections.
 
 * Enjoy.
 
